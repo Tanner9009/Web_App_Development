@@ -1,3 +1,4 @@
+Team name: Pathfinders
 Team members:   - Petre Tiberiu
                 - Ionita Alexandru
 
