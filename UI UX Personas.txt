@@ -1,0 +1,12 @@
+John Doe:
+- College Student
+- Likes playing board games
+- Used the site for looking into getting a new board game
+- Doesn't like having to make an account to purchase a board game online
+
+Tanner Jones:
+- Taxi Driver
+- Passionate about board games
+- Used the site in order to store photos and stories of the games he played.
+- Likes how well organized the account page is.
+
