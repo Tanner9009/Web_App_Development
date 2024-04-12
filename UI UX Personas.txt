@@ -1,8 +1,17 @@
 John Doe:
-- College Student
-- Likes playing board games
-- Used the site for looking into getting a new board game
-- Doesn't like having to make an account to purchase a board game online
+- Age: 21
+- Gender: Male
+- Children: None
+- Marital status: Single
+- Occupation: College Student
+- Education: Engineering Degree
+- Income: 2000$/month
+- Location: Berlin, Germany
+- Influencers: Professors, colleagues
+- Sources of info: TV, the internet
+- Values: Good grades but relaxation in equal moderation
+- Frustrations: Can't find the board game he wants
+- Aspirations: To have a good time playing boardgames with friends.
 
 Tanner Jones:
 - Taxi Driver
