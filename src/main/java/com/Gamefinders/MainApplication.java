@@ -1,13 +1,13 @@
-package com.Board_Game_Repository;
+package com.Gamefinders;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BoardGameRepositoryApplication {
+public class MainApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BoardGameRepositoryApplication.class, args);
+		SpringApplication.run(MainApplication.class, args);
 	}
 
 }
