@@ -3,7 +3,7 @@
     <head>
         <title>Boardgame Repository</title>
         <link rel="stylesheet" href="/src/main/resources/static/css/general_design.css">
-        <link rel="stylesheet" href="/src/main/resources/static/css/profile.css">
+        <link rel="stylesheet" href="/src/main/resources/static/css/bg_template.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -11,54 +11,52 @@
             <div class="logo">
                 <a>Logo</a>
             </div>
-        
+
+            <div class="signup">
+                <a href="boardgame_template.html">Sign Up</a>
+            </div>
+
             <div class="login">
                 <a href="profile.html">Login</a>
             </div>
-        
-            <div class="signup">
-                <a href="signup.html">Sign Up</a>
-            </div>
-        
+
             <div class="home">
                 <a href="index.html">Home</a>
             </div>
-        
+
             <div class="browse">
                 <a href="boardgames.html">Browse</a>
             </div>
-        
+
             <div class="search">
                 <input type="text" placeholder="Search.." name="search">
             </div>
         </div>
 
         <div class="main_body">
-            <div class="profile">
-                <img src="/src/main/resources/static/images/pf_background.png">
+            <div class="game_details">
+                <img src="/src/main/resources/static/images/scythe.png">
+                <p>Scythe(2016)</p>
+                <p>Playing time</p>
+                <p>Deisgner</p>
+                <p>Artist</p>
+                <p>Publisher</p>
             </div>
 
-            <div class="profile_features">
-                <a href="guides">{user}'s Guides</a>
-                <a href="reviews">{user}'s Reviews</a>
-                <a href="friends">{user}'s Friends</a>
-                <a href="collection">{user}'s Collection</a>
-                <a href="Wishlist">{user}'s Wishlist</a>
+            <div class="more_display">
+                <div class="r_o">
+                    <a href="overview">Overview</a>
+                    <a href="reviews">Reviews</a>
+                </div>
+
+                <div class="game_add">
+                    <p>Add this game in your collection</p>
+                    <a href="dropdown">Dropdown Menu</a>
+                </div>
             </div>
 
-            <div class="user_details">
-                <h3>About {user}</h3>
-                <h5>Favourite Games:</h5>
-                <h5>Favourite Genres:</h5>
-                <h3>Bio:</h3>
-                <h5>ahwduawhduawhdhawuhdhau</h5>
-            </div>
 
-            <div class="details_expand">
-
-            </div>
         </div>
-        
 
         <footer>
             <div class="socials">
@@ -80,9 +78,7 @@
                     <p>Privacy</p>
                     <p>Copyright</p>
                 </div>
-
             </div>
         </footer>
-    </body>
-
+        </body>
 </html>

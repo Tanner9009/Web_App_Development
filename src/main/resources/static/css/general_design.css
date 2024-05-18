@@ -43,6 +43,7 @@
 footer{
     background-color: green;
     overflow: hidden;
+    float:none;
 }
 
 .socials{

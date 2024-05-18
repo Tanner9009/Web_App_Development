@@ -1,0 +1,27 @@
+.game_details{
+    background-color: #686964;
+    margin: auto;
+    width:70%;
+    border: 3px solid pink;
+}
+
+.more_display{
+   
+    overflow: hidden;
+}
+
+.r_o{
+    float: left;
+    border: 3px solid cyan;
+    padding-left: 100px;
+}
+
+.game_add{
+    float: right;
+    border: 3px solid violet;
+    padding-right: 100px;
+}
+
+.game_add a{
+    float: right;
+}

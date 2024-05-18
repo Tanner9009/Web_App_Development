@@ -1,0 +1,24 @@
+.profile_features{
+    background-color: gainsboro;
+    align-content: center;
+    margin: auto;
+    width:60%;
+    border: 3px solid #73AD21;
+    padding:10px;
+    text-align: center;
+}
+
+.user_details{
+    float: left;
+    display:flex;
+    flex-direction: column;
+    background-color:  #898a86;
+    border: 3px solid #686964;
+    
+}
+
+
+.details_expand{
+    border: 200px solid #8d8f21;
+    overflow: hidden;
+}
