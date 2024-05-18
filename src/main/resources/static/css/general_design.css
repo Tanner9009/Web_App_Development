@@ -1,0 +1,71 @@
+.nav_bar{
+    background-color:green;
+    overflow: hidden;
+}
+
+.nav_bar a{
+    float: left;
+    color:white;
+    text-decoration: none;
+    text-align: center;
+    padding: 5px;
+}
+
+.login{
+    float:right;
+    padding:5px;
+    background-color: black;
+}
+
+.signup{
+    float:right;
+    padding:5px;
+    background-color: black;
+}
+
+.search{
+    float: right;
+    padding: 10px;
+}
+
+.browse{
+    float:left;
+    background-color: black;
+    padding:5px;
+}
+
+.home{
+    float:left;
+    background-color: black;
+    padding:5px;
+}
+
+footer{
+    background-color: green;
+    overflow: hidden;
+}
+
+.socials{
+    float:left;
+    text-align: center;
+    padding-top:25px;
+    padding-left: 100px;
+}
+
+.slinks_left{
+    float: right;
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+    padding-right:50px;
+    text-align: center;
+}
+
+.slinks_right{
+    float: right;
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+    padding-right:50px;
+    text-align:center;
+}
