@@ -1,0 +1,11 @@
+.product_row1{
+    background-color: aqua;
+}
+
+.product_row2{
+    display: flex;
+    flex-direction: row;
+    background-color: pink;
+    border: 3px solid violet;
+    float: right;
+}
