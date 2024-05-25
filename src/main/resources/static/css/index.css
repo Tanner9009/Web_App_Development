@@ -3,8 +3,12 @@
 }
 
 .carousel{
-    align-items: center;
-    align-content: center;
+    max-width: 500px;
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .text_group{

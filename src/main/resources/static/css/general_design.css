@@ -12,14 +12,16 @@
 }
 
 .login{
+    border: 1px solid gray;
     float:right;
-    padding:5px;
+    padding:10px;
     background-color: black;
 }
 
 .signup{
+    border: 1px solid gray;
     float:right;
-    padding:5px;
+    padding:10px;
     background-color: black;
 }
 
@@ -29,15 +31,17 @@
 }
 
 .browse{
+    border: 1px solid gray;
     float:left;
     background-color: black;
-    padding:5px;
+    padding:10px;
 }
 
 .home{
+    border: 1px solid gray;
     float:left;
     background-color: black;
-    padding:5px;
+    padding:10px;
 }
 
 footer{
@@ -47,6 +51,7 @@ footer{
 }
 
 .socials{
+    color:#000000;
     float:left;
     text-align: center;
     padding-top:25px;
@@ -54,6 +59,7 @@ footer{
 }
 
 .slinks_left{
+    color: #000000;
     float: right;
     display: flex;
     flex-direction: column;
@@ -63,6 +69,7 @@ footer{
 }
 
 .slinks_right{
+    color:#000000;
     float: right;
     display: flex;
     flex-direction: column;
