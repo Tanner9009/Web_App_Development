@@ -1,5 +1,5 @@
 .nav_bar{
-    background-color:green;
+    background: linear-gradient(to bottom,#04630f 0%, #08bd1d 100%);
     overflow: hidden;
 }
 
@@ -45,7 +45,7 @@
 }
 
 footer{
-    background-color: green;
+    background: linear-gradient(to bottom,#04630f 0%, #08bd1d 100%);
     overflow: hidden;
     float:none;
 }
