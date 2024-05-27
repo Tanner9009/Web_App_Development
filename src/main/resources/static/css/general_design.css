@@ -15,7 +15,7 @@
     border: 1px solid gray;
     float:right;
     padding:10px;
-    background-color: black;
+    background: radial-gradient( black 10%, gray 90%);
 }
 
 .signup{
