@@ -1,4 +1,4 @@
-package com.Gamefinders.domain;
+package com.Gamefinders.domain.classes;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

@@ -1,9 +1,11 @@
-package com.Gamefinders.domain;
+package com.Gamefinders.domain.classes;
 
-//Import Beginning
+//Imports Beginning
 
 //Utilities
 import java.util.ArrayList;
+import java.util.Objects;
+import java.time.LocalDate;
 
 //MongoDB 
 import org.springframework.data.annotation.Id;
@@ -13,11 +15,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.Getter;
 import lombok.Setter;
 
-//Import Ending
+//Imports Ending
 
 @Getter
 @Setter
-@Document("BoardGames")
+@Document("boardgames")
 public class BoardGame {
     
     @Id
@@ -27,6 +29,7 @@ public class BoardGame {
     private String name;
     private String designer, artist, publisher;
     private String gameDescription;
+    private LocalDate releaseDate;
 
     //Board game general information
     private Integer playingTimeMin, playingTimeMax;
@@ -43,12 +46,13 @@ public class BoardGame {
 
     public BoardGame(){};
 
-    public BoardGame(String name, String designer, String artist, String publisher, String gameDescription, Integer playingTimeMin, Integer playingTimeMax, Integer playerNoMin, Integer playerNOMax, Integer minimumAge, ArrayList<Integer> types, ArrayList<Integer> categories, ArrayList<Integer> mechanics, Float userScore) {
+    public BoardGame(String name, String designer, String artist, String publisher, String gameDescription, LocalDate releaseDate, Integer playingTimeMin, Integer playingTimeMax, Integer playerNoMin, Integer playerNOMax, Integer minimumAge, ArrayList<Integer> types, ArrayList<Integer> categories, ArrayList<Integer> mechanics, Float userScore) {
         this.name = name;
         this.designer = designer;
         this.artist = artist;
         this.publisher = publisher;
         this.gameDescription = gameDescription;
+        this.releaseDate = releaseDate;
         this.playingTimeMin = playingTimeMin;
         this.playingTimeMax = playingTimeMax;
         this.playerNoMin = playerNoMin;
@@ -58,6 +62,19 @@ public class BoardGame {
         this.categories = categories;
         this.mechanics = mechanics;
         this.userScore = userScore;
-    }    
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(this.id, this.name, this.releaseDate);
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BoardGame game = (BoardGame) o;
+        return Objects.equals(id, game.id) && Objects.equals(name, game.name);
+    }
 }
 
