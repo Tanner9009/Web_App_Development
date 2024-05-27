@@ -8,18 +8,21 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    padding: 30px;
 }
 
 .categories{
     float: left;
     padding: 10px;
     background-color: chocolate;
+    padding-bottom: 317.1px;
 }
 
 .product_row1{
     display: flex;
     flex-direction: row;
     background-color: aqua;
+    justify-content: center;
 }
 
 .product_row2{
@@ -31,13 +34,49 @@
 }
 
 .prod6{
-    background-color: aqua;
+    padding: 10px;
+}
+
+.prod5{
+    padding: 10px;
+}
+
+.prod4{
+    padding: 10px;
+}
+
+.prod3{
+    padding: 10px;
+}
+
+.prod2{
+    padding: 10px;
+}
+
+.prod1{
+    padding: 10px;
 }
 
 .prod6_img img{
-    max-width: 100px;
+    max-width: 200px;
+}
+
+.prod5_img img{
+    max-width: 200px;
+}
+
+.prod4_img img{
+    max-width: 200px;
 }
 
 .prod3_img img{
-    max-width: 100px;
+    max-width: 200px;
+}
+
+.prod2_img img{
+    max-width: 200px;
+}
+
+.prod1_img img{
+    max-width: 200px;
 }
