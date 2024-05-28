@@ -1,4 +1,4 @@
-package com.Gamefinders.services;
+package com.Gamefinders.securingweb;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,7 +14,7 @@ import com.Gamefinders.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class MongoAuthUserDetailService implements UserDetailsService{
+public class MongoUserDetailsService implements UserDetailsService{
     
     @Autowired
     private UserRepository userRepository;
