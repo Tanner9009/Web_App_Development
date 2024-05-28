@@ -20,6 +20,7 @@ public class Review {
     //Review Metadata
     @Id
     public String id;
+    public String authorId;
 
     //User-generated content
     public String text;
@@ -27,8 +28,9 @@ public class Review {
 
     public Review(){}
 
-    public Review(String id, String text, Float userScore){
+    public Review(String id, String authorId, String text, Float userScore){
         this.id = id;
+        this.authorId = authorId;
         this.text = text;
         this.userScore = userScore;
     }
