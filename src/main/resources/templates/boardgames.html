@@ -23,7 +23,7 @@
             </div> 
 
             <div class="home">
-                <a th:href="@{'/home'}">Home</a>
+                <a th:href="@{'/'}">Home</a>
             </div>
 
             <div class="browse">
@@ -37,14 +37,32 @@
         <div class="main_body">
     
         <table>
-            <ul>
-                <li th:each="boardgame : ${boardgames}">
+            <tr>
+                <td>Name</td>
+                <td>Designer</td>
+                <td>Artist</td>
+                <td>Publisher</td>
+                <td>Minimum Playtime</td>
+                <td>Maximum Playtime</td>
+                <td>Minimum Players</td>
+                <td>Maximum Players</td>
+                <td>Minimum Age</td>
+            </tr>
+            <div th:each="boardgame : ${boardgames}">
+                <tr>
                     <td><span th:text="${boardgame.name}"></span></td>
-                    <td><span th:text="${boardgame.name}"></span></td>
-                    <td><span th:text="${boardgame.name}"></span></td>
-                </li>
-            </ul>
+                    <td><span th:text="${boardgame.designer}"></span></td>
+                    <td><span th:text="${boardgame.artist}"></span></td>
+                    <td><span th:text="${boardgame.publisher}"></span></td>
+                    <td><span th:text="${boardgame.playingTimeMin}"></span></td>
+                    <td><span th:text="${boardgame.playingTimeMax}"></span></td>
+                    <td><span th:text="${boardgame.playerNoMin}"></span></td>
+                    <td><span th:text="${boardgame.playerNoMax}"></span></td>
+                    <td><span th:text="${boardgame.minimumAge}"></span></td>
+                </tr>
+            <div>
         </table>
+
         <footer>
             <div class="socials">
                 <p>Social</p>

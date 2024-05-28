@@ -21,7 +21,7 @@ public class BoardGamesController {
 
     @GetMapping
     public String seeBoardGames(Model model){
-        model.addAttribute("boardGames", boardGameService.findAll());
+        model.addAttribute("boardgames", boardGameService.findAll());
         return "boardgames";
     }
 }

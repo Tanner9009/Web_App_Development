@@ -33,7 +33,7 @@ public class BoardGame {
 
     //Board game general information
     private Integer playingTimeMin, playingTimeMax;
-    private Integer playerNoMin, playerNOMax;
+    private Integer playerNoMin, playerNoMax;
     private Integer minimumAge;
     
     //Board game classification
@@ -46,7 +46,7 @@ public class BoardGame {
 
     public BoardGame(){};
 
-    public BoardGame(String name, String designer, String artist, String publisher, String gameDescription, LocalDate releaseDate, Integer playingTimeMin, Integer playingTimeMax, Integer playerNoMin, Integer playerNOMax, Integer minimumAge, ArrayList<Integer> types, ArrayList<Integer> categories, ArrayList<Integer> mechanics, Float userScore) {
+    public BoardGame(String name, String designer, String artist, String publisher, String gameDescription, LocalDate releaseDate, Integer playingTimeMin, Integer playingTimeMax, Integer playerNoMin, Integer playerNOMax, Integer minimumAge, ArrayList<String> types, ArrayList<String> categories, ArrayList<String> mechanics, Float userScore) {
         this.name = name;
         this.designer = designer;
         this.artist = artist;
@@ -56,7 +56,7 @@ public class BoardGame {
         this.playingTimeMin = playingTimeMin;
         this.playingTimeMax = playingTimeMax;
         this.playerNoMin = playerNoMin;
-        this.playerNOMax = playerNOMax;
+        this.playerNoMax = playerNOMax;
         this.minimumAge = minimumAge;
         this.types = types;
         this.categories = categories;
