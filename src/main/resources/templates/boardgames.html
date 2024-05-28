@@ -36,19 +36,6 @@
         </div>
         <div class="main_body">
 
-        <div class="categories">
-            <h2>Categories</h2>
-            <div class="categories_content">
-                <ol>
-                    <li>Strategy</li>
-                    <li>Area Control</li>
-                    <li>Deck-building</li>
-                    <li>Workker Placement</li>
-                    <li>Area Majority</li>
-                </ol>
-            </div>
-        </div>
-
         <ul>
             <li th:each="game : ${boardGames}">
                 <span th:text="${game.name}"></span>
