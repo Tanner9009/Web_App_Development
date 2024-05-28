@@ -4,7 +4,7 @@ import com.Gamefinders.domain.classes.BoardGame;
 import java.util.List;
 import java.util.Optional;
 
-public interface BoardGameService {
+public interface BoardGameService { 
     void saveAll(Iterable<BoardGame> boardGames);
     List<BoardGame> findAll();
 

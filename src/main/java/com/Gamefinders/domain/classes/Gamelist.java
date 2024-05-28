@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 //MongoDB
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 //Lombok
 import lombok.Getter;
@@ -14,8 +15,9 @@ import lombok.Setter;
 
 //Imports Ending
 
-@Getter
+
 @Setter
+@Document("gamelists")
 public class Gamelist {
     
     //Collection metadata

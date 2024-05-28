@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.Gamefinders.domain.classes.BoardGame;
 
 @Controller
-@RequestMapping("/adminPanel")
+@RequestMapping("/adminpanel")
 public class AdminController {
     
     @GetMapping
