@@ -51,6 +51,7 @@ public class User implements UserDetails{
 
     public User(){}
 
+
     public User(ObjectId id, LocalDate signupDate, String username, String password, String email, ArrayList<Integer> favouriteGames, ArrayList<Integer> favouriteGenres, String userBio) {
         this.id = id;
         this.signupDate = signupDate;

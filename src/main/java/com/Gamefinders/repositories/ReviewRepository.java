@@ -13,5 +13,4 @@ public interface ReviewRepository extends MongoRepository<Review, String>{
     List<Review> findByAuthorId(String authorId);
     List<BoardGame> findByUserScoreGreaterThan(float userScore);
     List<BoardGame> findByUserScoreLessThan(float userScore);
-
 }      
