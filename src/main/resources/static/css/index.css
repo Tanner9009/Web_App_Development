@@ -3,8 +3,7 @@
 }
 
 .carousel{
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 500px;
     position: relative;
     margin: auto;
     display: flex;
@@ -13,14 +12,8 @@
 }
 
 .text_group{
+    max-width: 1500px;
+    margin: auto;
+    position: relative;
     text-align: center;
-}
-
-.carousel-item img{
-    max-width: 200px;
-    max-height: 200px;
-}
-
-.carousel-item active img{
-    max-width: 300px;
 }

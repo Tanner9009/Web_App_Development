@@ -1,6 +1,7 @@
 .products{
     display: flex;
     flex-direction: column;
+    background: radial-gradient(circle, gray 55%, white 95%);
 }
 
 .banner{
@@ -14,23 +15,20 @@
 .categories{
     float: left;
     padding: 10px;
-    background-color: chocolate;
-    padding-bottom: 317.1px;
+    background: radial-gradient(circle, gray 95%, white 95%);
+    padding-bottom: 311.2px;
 }
 
 .product_row1{
     display: flex;
     flex-direction: row;
-    background-color: aqua;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .product_row2{
     display: flex;
     flex-direction: row;
-    background-color: pink;
-    border: 3px solid violet;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .prod6{
