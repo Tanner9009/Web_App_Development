@@ -35,13 +35,16 @@
             </div>
         </div>
         <div class="main_body">
-
-        <ul>
-            <li th:each="game : ${boardGames}">
-                <span th:text="${game.name}"></span>
-            </li>
-        </ul>
-
+    
+        <table>
+            <ul>
+                <li th:each="boardgame : ${boardgames}">
+                    <td><span th:text="${boardgame.name}"></span></td>
+                    <td><span th:text="${boardgame.name}"></span></td>
+                    <td><span th:text="${boardgame.name}"></span></td>
+                </li>
+            </ul>
+        </table>
         <footer>
             <div class="socials">
                 <p>Social</p>
