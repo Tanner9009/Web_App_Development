@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="/src/main/resources/static/css/profile.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="/src/main/resources/static/js/profile.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -23,7 +24,7 @@
             </div>
         
             <div class="home">
-                <a href="index.html">Home</a>
+                <a href="home.html">Home</a>
             </div>
         
             <div class="browse">
@@ -37,27 +38,73 @@
 
         <div class="main_body">
             <div class="profile">
-                <img src="/src/main/resources/static/images/pf_background.png">
+                <img src="/src/main/resources/static/images/profile_pic.jpg">
             </div>
 
             <div class="profile_features">
-                <a href="guides">{user}'s Guides</a>
-                <a href="reviews">{user}'s Reviews</a>
-                <a href="friends">{user}'s Friends</a>
-                <a href="collection">{user}'s Collection</a>
-                <a href="Wishlist">{user}'s Wishlist</a>
+                <a href="javascript:displayGuide()">John's Guides</a>
+                <a href="javascript:displayGuide()">John's Reviews</a>
+                <a href="javascript:displayGuide()">John's Friends</a>
+                <a href="javascript:displayGuide()">John's Collection</a>
+                <a href="javascript:displayGuide()">John's Wishlist</a>
             </div>
 
             <div class="user_details">
-                <h3>About {user}</h3>
+                <h3>About John</h3>
                 <h5>Favourite Games:</h5>
                 <h5>Favourite Genres:</h5>
                 <h3>Bio:</h3>
-                <h5>ahwduawhduawhdhawuhdhau</h5>
+                <pre>
+Name: John Doe
+Children: None
+Marital Status: Single
+Location: Berlin, Germany
+Income: 1000$/month
+Influencers: Professors, Colleagues
+                    </pre>
             </div>
 
             <div class="details_expand">
+                <div id="guide" style="display: none;">
+                    <pre>
+So, let me begin by saying I think this is a very good game. I actually rate it an 8. Let me also say that, of course, ratings and such are a case of personal taste and opinion, naturally. 
+So if it makes you feel any better, you can add 'in my opinion' to all my sentences.
 
+Having said that, from my plays of Scythe, I cannot help but note some (I thought, at least) significant and fairly obvious issues with the game, that are rarely mentioned, and I would like to comment on those. 
+I see the game shooting up the ratings, and I'm not at all surprised, though it does make me scratch my head a bit also. Though I guess it's to be expected as well, considering the trends in board game rankings at the moment.
+                    
+So anyway, I'm going to make a list of pros and cons, and make a comparison to Kemet and Terra Mystica - 2 games I rate a 10, and explain why I feel like Scythe doesn't make it to that standing for me.
+
+ First, let me list what I see as the greatest positives of the game:
+
+1. Theme is fun and original.
+2. Conflict, and the results of conflict tend not to be debilitating. A player won't feel 'knocked out' because someone was mean to them.
+3. Relatively easy and intuitive to learn depending on the teacher.
+4. Shortish playtime (we go about 2-2 1/2 hrs for a 5 player game), but still feels like you have played an 'epic' game.
+5. Really nice art, and Mechs are sweet.
+6. Thinky game where planning is very important, very strong focus on efficiency.
+7. For me, at least, this game has the 'x-factor' of just being 'fun' (at least on the first few plays...)
+8. You do have to watch the other players closely. Though you can't effect that THAT much, you do have to look out for them completing their conditions, and a even a small amount of effort on your part can send them back a couple of turns, which can be a big points swing in the last few rounds.
+9. Turns move real quick. Low downtime.
+
+So overall, great stuff. Like I said, and 8 for me.
+
+So, here's where I begin to have problems with the game. I will talk about these in a bit more depth, since the positives have already been extensively covered.
+
+I will start with some minor issues and move on to greater ones, since I figure let's not get everyone's back up from the outset.
+
+1. The Encounter cards
+
+...don't really work in evoking the theme. Okay, hear me out before yelling at me about the art I love the art, and the evocation of the theme is very strong through that art.
+But that's only for the player that picks it up, since they can't 'read' the picture to the other players.
+You can pass the card around to other players, but realistically, I don't think most players will do that since the player who gets the card usually has to sit and stare at the card for 2 minutes deciding what they what they want.
+What we've found is that it quickly degenerates into the player reads out the three options (which have no real theme to them as far as anyone else can tell). I LOVE the art, but for these kinds of cards, in other games (eg Lords of Waterdeep) the text works so much better, since the player can just read it out
+(note: I am not comparing Lords of Waterdeep with Scythe overall).
+
+This is almost nit-picky, but still, it's a pity the theme is not well brought out by the cards ultimately. 
+Instead, the bulk of the work for carrying the theme lies with:
+</pre>
+                </div>
             </div>
         </div>
         
