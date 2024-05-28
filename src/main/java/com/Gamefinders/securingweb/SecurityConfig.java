@@ -1,4 +1,4 @@
-package com.Gamefinders.services;
+package com.Gamefinders.securingweb;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.ProviderManager;
