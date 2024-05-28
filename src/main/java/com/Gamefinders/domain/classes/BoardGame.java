@@ -37,9 +37,9 @@ public class BoardGame {
     private Integer minimumAge;
     
     //Board game classification
-    private ArrayList<Integer> types;
-    private ArrayList<Integer> categories;
-    private ArrayList<Integer> mechanics;
+    private ArrayList<String> types;
+    private ArrayList<String> categories;
+    private ArrayList<String> mechanics;
     
     //User generated information
     private Float userScore;
