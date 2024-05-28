@@ -35,127 +35,25 @@
             </div>
         </div>
         <div class="main_body">
-            
-        
 
-            <div class="categories">
-                <h2>Categories</h2>
-                <div class="categories_content">
-                    <ol>
-                        <li>Strategy</li>
-                        <li>Area Control</li>
-                        <li>Deck-building</li>
-                        <li>Workker Placement</li>
-                        <li>Area Majority</li>
-                    </ol>
-                </div>
-            </div>
-
-            <div class="products">
-                <div class="product_row1">
-
-                    <div class="prod6">
-                        <div class="prod6_img">
-                            <a href="boardgame_template.html">
-                                <img src="images/Carousel1.png">
-                            </a>
-                        </div>
-
-                        <div class="prod6_name">
-                            <p><b>Root</b></p>
-                        </div>
-
-                        <div class="prod6_price">
-                            <p>50.95$</p>
-                        </div>
-
-                        
-                    </div>
-
-                    <div class="prod5">
-                        <div class="prod5_img">
-                            <a href="boardgame_template.html">
-                                <img src="images/Carousel3.png">
-                            </a>
-                        </div>
-
-                        <div class="prod5_name">
-                            <p><b>7 Wonders</b></p>
-                        </div>
-
-                        <div class="prod5_price">
-                            <p>59.99$</p>
-                        </div>
-                    </div>
-
-                    <div class="prod4">
-                        <div class="prod4_img">
-                            <a href="boardgame_template.html">
-                                <img src="images/Calico.png">
-                            </a>
-                        </div>
-
-                        <div class="prod4_name">
-                            <p><b>Calico</b></p>
-                        </div>
-
-                        <div class="prod4_price">
-                            <p>31.00$</p>
-                        </div>                    
-                    </div>
-                </div>
-
-                <div class="product_row2">
-                    <div class="prod3">
-                        <div class="prod3_img">
-                            <a href="boardgame_template.html">
-                                <img src="images/Crew.png">
-                            </a>
-                        </div>
-
-                        <div class="prod3_name">
-                            <p><b>The Crew</b></p>
-                        </div>
-
-                        <div class="prod3_price">
-                            <p>10.59$</p>
-                        </div>
-                    </div>
-
-                    <div class="prod2">
-                        <div class="prod2_img">
-                            <a href="boardgame_template.html">
-                                <img src="images/Catan.png">
-                            </a>
-                        </div>
-
-                        <div class="prod2_name">
-                            <p><b>Catan<b></b></p>
-                        </div>
-
-                        <div class="prod2_price">
-                            <p>43.99$</p>
-                        </div>                  
-                    </div>
-
-                    <div class="prod1">
-                        <div class="prod1_img">
-                            <a href="boardgame_template.html">
-                                <img src="images/Arnak.png">
-                            </a>
-                        </div>
-
-                        <div class="prod1_name">
-                            <p><b>Lost Ruins of Arnak</b></p>
-                        </div>
-
-                        <div class="prod1_price">
-                            <p>59.95$</p>
-                        </div>
-                    </div>
-                </div>
+        <div class="categories">
+            <h2>Categories</h2>
+            <div class="categories_content">
+                <ol>
+                    <li>Strategy</li>
+                    <li>Area Control</li>
+                    <li>Deck-building</li>
+                    <li>Workker Placement</li>
+                    <li>Area Majority</li>
+                </ol>
             </div>
         </div>
+
+        <ul>
+            <li th:each="game : ${boardGames}">
+                <span th:text="${game.name}"></span>
+            </li>
+        </ul>
 
         <footer>
             <div class="socials">
