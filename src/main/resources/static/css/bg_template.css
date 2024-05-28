@@ -1,8 +1,13 @@
-.game_details{
-    background-color: #686964;
+.game{
     margin: auto;
-    width:70%;
-    border: 3px solid pink;
+    width:60%;
+    border: 3px solid gray;
+}
+
+.game_image img{
+    float: left;
+    max-width: 275px;
+    max-height: 275px;
 }
 
 .more_display{
