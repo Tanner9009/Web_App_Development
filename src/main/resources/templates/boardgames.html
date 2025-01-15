@@ -1,89 +1,98 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Gamefinders</title>
-        <link rel="stylesheet" href="css/general_design.css">
-        <link rel="stylesheet" href="css/boardgames.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div class="nav_bar">
-            <div class="logo">
-                <a>Logo</a>
+<head>
+    <title>Gamefinders</title>
+    <link rel="stylesheet" href="css/general_design.css">
+    <link rel="stylesheet" href="css/boardgames.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="wrapper">
+    <div class="nav_bar">
+        <div class="logo">
+            <a>Logo</a>
+        </div>
+
+        <div class="signup" th:if="${#authorization.expression('isAnonymous()')}">
+            <a th:href="@{'/signup'}">Sign Up</a>
+        </div>
+
+        <div class="login" th:if="${#authorization.expression('isAnonymous()')}">
+            <a th:href="@{'/login'}">Login</a>
+        </div> 
+        
+        <div class="profile" sec:authorize="isAuthenticated()">
+            <a th:href="@{/profile}">Profile</a>
+        </div>
+    
+        <!-- Visible only if user IS logged in -->
+        <div class="logout" sec:authorize="isAuthenticated()">
+            <a th:href="@{/logout}">Log Out</a>
+        </div>
+
+        <div class="home">
+            <a th:href="@{'/'}">Home</a>
+        </div>
+
+        <div class="browse">
+            <a th:href="@{'/boardgames'}">Browse</a>
+        </div>
+
+        <div class="search">
+            <input type="text" placeholder="Search.." name="search">
+        </div>
+    </div>
+    <div class="board-game-table">
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Designer</td>
+            <td>Artist</td>
+            <td>Publisher</td>
+            <td>Minimum Playtime</td>
+            <td>Maximum Playtime</td>
+            <td>Minimum Players</td>
+            <td>Maximum Players</td>
+            <td>Minimum Age</td>
+        </tr>
+        <div th:each="boardgame : ${boardgames}">
+            <tr>
+                <td><a th:text="${boardgame.name}"></td>
+                <td><span th:text="${boardgame.designer}"></span></td>
+                <td><span th:text="${boardgame.artist}"></span></td>
+                <td><span th:text="${boardgame.publisher}"></span></td>
+                <td><span th:text="${boardgame.playingTimeMin}"></span></td>
+                <td><span th:text="${boardgame.playingTimeMax}"></span></td>
+                <td><span th:text="${boardgame.playerNoMin}"></span></td>
+                <td><span th:text="${boardgame.playerNoMax}"></span></td>
+                <td><span th:text="${boardgame.minimumAge}"></span></td>
+            </tr>
+        <div>
+    </table>
+    </div>
+    <footer>
+        <div class="socials">
+            <p>Social</p>
+            <p>Media</p>
+            <p>Links</p>
+        </div>
+
+        <div class="social_links">
+            <div class="slinks_left">
+                <p>About</p>
+                <p>Contact</p>
+                <p>Support the project</p>
             </div>
 
-            <div class="signup">
-                <a th:href="@{'/signup'}">Sign Up</a>
-            </div>
-
-            <div class="login">
-                <a th:href="@{'/login'}">Login</a>
-            </div> 
-
-            <div class="home">
-                <a th:href="@{'/'}">Home</a>
-            </div>
-
-            <div class="browse">
-                <a th:href="@{'/boardgames'}">Browse</a>
-            </div>
-
-            <div class="search">
-                <input type="text" placeholder="Search.." name="search">
+            <div class="slinks_right">
+                <p>Help</p>
+                <p>Privacy</p>
+                <p>Copyright</p>
             </div>
         </div>
-        <div class="main_body">
-    
-        <table>
-            <tr>
-                <td>Name</td>
-                <td>Designer</td>
-                <td>Artist</td>
-                <td>Publisher</td>
-                <td>Minimum Playtime</td>
-                <td>Maximum Playtime</td>
-                <td>Minimum Players</td>
-                <td>Maximum Players</td>
-                <td>Minimum Age</td>
-            </tr>
-            <div th:each="boardgame : ${boardgames}">
-                <tr>
-                    <td><span th:text="${boardgame.name}"></span></td>
-                    <td><span th:text="${boardgame.designer}"></span></td>
-                    <td><span th:text="${boardgame.artist}"></span></td>
-                    <td><span th:text="${boardgame.publisher}"></span></td>
-                    <td><span th:text="${boardgame.playingTimeMin}"></span></td>
-                    <td><span th:text="${boardgame.playingTimeMax}"></span></td>
-                    <td><span th:text="${boardgame.playerNoMin}"></span></td>
-                    <td><span th:text="${boardgame.playerNoMax}"></span></td>
-                    <td><span th:text="${boardgame.minimumAge}"></span></td>
-                </tr>
-            <div>
-        </table>
-
-        <footer>
-            <div class="socials">
-                <p>Social</p>
-                <p>Media</p>
-                <p>Links</p>
-            </div>
-
-            <div clas="social_links">
-                
-                <div class="slinks_left">
-                    <p>About</p>
-                    <p>Contact</p>
-                    <p>Support the project</p>
-                </div>
-
-                <div class="slinks_right">
-                    <p>Help</p>
-                    <p>Privacy</p>
-                    <p>Copyright</p>
-                </div>
-            </div>
-        </footer>
-    </body>
+    </footer>
+</div>
+</body>
 </html>

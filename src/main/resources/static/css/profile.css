@@ -1,11 +1,11 @@
-.profile{
+.profile_pic{
     display: flex;
     flex-direction: row;
     justify-content: center;
 
 }
 
-.profile img{
+.profile_pic img{
     max-width: 200px;
     max-height: 200px;
 }

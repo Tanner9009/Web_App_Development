@@ -3,6 +3,20 @@
     overflow: hidden;
 }
 
+.profile{
+    border: 1px solid gray;
+    float:right;
+    padding:10px;
+    background-color: black;
+}
+
+.logout{
+    border: 1px solid gray;
+    float:right;
+    padding:10px;
+    background-color: black;
+}
+
 .nav_bar a{
     float: left;
     color:white;
@@ -44,11 +58,21 @@
     padding:10px;
 }
 
-footer{
+/* footer{
     background: linear-gradient(to bottom,#04630f 0%, #08bd1d 100%);
     overflow: hidden;
     float:none;
+    flex-shrink: 0;
+} */
+
+footer {
+    background: linear-gradient(to bottom,#04630f 0%, #08bd1d 100%);
+    overflow: hidden;
+    flex-shrink: 0;
+    text-align: center;
+    padding: 10px;
 }
+
 
 .socials{
     color:#000000;
@@ -76,4 +100,26 @@ footer{
     padding:10px;
     padding-right:50px;
     text-align:center;
+}
+
+.admin {
+    border: 1px solid gray;
+    float: right;
+    padding: 10px;
+    background-color: black;
+}
+
+.main_body {
+    flex: 1;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
 }

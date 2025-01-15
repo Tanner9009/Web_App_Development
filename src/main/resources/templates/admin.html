@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/general_design.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="wrapper">
+    <div class="nav_bar">
+        <div class="logo">
+            <a>Logo</a>
+        </div>
+
+        <div class="home">
+            <a th:href="@{'/'}">Home</a>
+        </div>
+
+        <div class="browse">
+            <a th:href="@{'/boardgames'}">Browse</a>
+        </div>
+
+        <div class="search">
+            <input type="text" placeholder="Search.." name="search">
+        </div>
+
+        <div class="logout" sec:authorize="isAuthenticated()">
+            <a th:href="@{/logout}">Log Out</a>
+        </div>
+    </div>
+
+    <div class="main_body">
+        <h1>Admin Dashboard</h1>
+        <p>Welcome to the admin dashboard!</p>
+
+        <h2>Add a New Board Game</h2>
+        <form th:action="@{/admin/addBoardGame}" th:object="${newBoardGame}" method="post">
+            <label for="name">Name: </label>
+            <input type="text" id="name" th:field="*{name}" required/><br/>
+
+            <label for="designer">Designer: </label>
+            <input type="text" id="designer" th:field="*{designer}" required/><br/>
+
+            <label for="artist">Artist: </label>
+            <input type="text" id="artist" th:field="*{artist}" required/><br/>
+
+            <label for="publisher">Publisher: </label>
+            <input type="text" id="publisher" th:field="*{publisher}" required/><br/>
+
+            <label for="playingTimeMin">Minimum Playing Time: </label>
+            <input type="number" id="playingTimeMin" th:field="*{playingTimeMin}" required/><br/>
+
+            <label for="playingTimeMax">Maximum Playing Time: </label>
+            <input type="number" id="playingTimeMax" th:field="*{playingTimeMax}" required/><br/>
+
+            <label for="playerNoMin">Minimum Players: </label>
+            <input type="number" id="playerNoMin" th:field="*{playerNoMin}" required/><br/>
+
+            <label for="playerNoMax">Maximum Players: </label>
+            <input type="number" id="playerNoMax" th:field="*{playerNoMax}" required/><br/>
+
+            <label for="minimumAge">Minimum Age: </label>
+            <input type="number" id="minimumAge" th:field="*{minimumAge}" required/><br/>
+
+            <label for="types">Types: </label>
+            <input type="text" id="types" th:field="*{types}" required/><br/>
+
+            <label for="categories">Categories: </label>
+            <input type="text" id="categories" th:field="*{categories}" required/><br/>
+
+            <label for="mechanics">Mechanics: </label>
+            <input type="text" id="mechanics" th:field="*{mechanics}" required/><br/>
+
+            <label for="userScore">User Score: </label>
+            <input type="number" step="0.1" id="userScore" th:field="*{userScore}" required/><br/>
+
+            <button type="submit">Add Board Game</button>
+        </form>
+
+        <h2>Remove a Board Game</h2>
+        <form th:action="@{/admin/removeBoardGame}" method="post">
+            <label for="boardGameName">Name: </label>
+            <input type="text" id="boardGameName" name="boardGameName" required/><br/>
+            <button type="submit">Remove Board Game</button>
+        </form>
+
+        <h2>Existing Board Games</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Designer</th>
+                    <th>Artist</th>
+                    <th>Publisher</th>
+                    <th>Minimum Playing Time</th>
+                    <th>Maximum Playing Time</th>
+                    <th>Minimum Players</th>
+                    <th>Maximum Players</th>
+                    <th>Minimum Age</th>
+                    <th>Types</th>
+                    <th>Categories</th>
+                    <th>Mechanics</th>
+                    <th>User Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="game : ${boardGames}">
+                    <td th:text="${game.name}">Game Name</td>
+                    <td th:text="${game.designer}">Designer</td>
+                    <td th:text="${game.artist}">Artist</td>
+                    <td th:text="${game.publisher}">Publisher</td>
+                    <td th:text="${game.playingTimeMin}">Minimum Playing Time</td>
+                    <td th:text="${game.playingTimeMax}">Maximum Playing Time</td>
+                    <td th:text="${game.playerNoMin}">Minimum Players</td>
+                    <td th:text="${game.playerNoMax}">Maximum Players</td>
+                    <td th:text="${game.minimumAge}">Minimum Age</td>
+                    <td th:text="${game.types}">Types</td>
+                    <td th:text="${game.categories}">Categories</td>
+                    <td th:text="${game.mechanics}">Mechanics</td>
+                    <td th:text="${game.userScore}">User Score</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <div class="socials">
+            <p>Links</p>
+        </div>
+
+        <div class="social_links">
+            <div class="slinks_left">
+                <p>About</p>
+                <p>Contact</p>
+                <p>Support the project</p>
+            </div>
+
+            <div class="slinks_right">
+                <p>Help</p>
+                <p>Privacy</p>
+                <p>Copyright</p>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

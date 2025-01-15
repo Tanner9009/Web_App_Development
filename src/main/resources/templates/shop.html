@@ -14,13 +14,22 @@
                 <a>Logo</a>
             </div>
 
-            <div class="signup">
+            <div class="signup" th:if="${#authorization.expression('isAnonymous()')}">
                 <a th:href="@{'/signup'}">Sign Up</a>
             </div>
 
-            <div class="login">
+            <div class="login" th:if="${#authorization.expression('isAnonymous()')}">
                 <a th:href="@{'/login'}">Login</a>
             </div> 
+            
+            <div class="profile" sec:authorize="isAuthenticated()">
+                <a th:href="@{/profile}">Profile</a>
+            </div>
+        
+            <!-- Visible only if user IS logged in -->
+            <div class="logout" sec:authorize="isAuthenticated()">
+                <a th:href="@{/logout}">Log Out</a>
+            </div>
 
             <div class="home">
                 <a th:href="@{'/'}">Home</a>

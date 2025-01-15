@@ -1,0 +1,45 @@
+.login_form{
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.login_form label{
+    padding: 10px;
+    text-size-adjust: 20px;   
+}
+
+.login_form input{
+    padding: 10px;
+    margin: 10px;
+    width: 50%;
+}
+
+.errors{
+    margin: auto;
+    text-align: center;
+    position: center;
+}
+
+h1{
+    text-align: center;
+    padding: 80px;
+}
+
+.space{
+    padding: 200px;
+}
+
+button{
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: green
+}
+div th{
+    margin: auto;
+    text-align: center;
+    position: center;
+}

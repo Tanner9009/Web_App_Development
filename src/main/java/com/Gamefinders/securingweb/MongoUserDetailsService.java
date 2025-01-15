@@ -1,3 +1,4 @@
+// filepath: /home/ione/Documents/University/Year_3/Web_App_Development/Web_App_Development/src/main/java/com/Gamefinders/securingweb/MongoUserDetailsService.java
 package com.Gamefinders.securingweb;
 
 import java.util.HashSet;
@@ -13,22 +14,24 @@ import com.Gamefinders.domain.classes.User;
 import com.Gamefinders.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public class MongoUserDetailsService implements UserDetailsService{
+@Service
+public class MongoUserDetailsService implements UserDetailsService {
     
     @Autowired
     private UserRepository userRepository;
     
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
-
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
+        if (user == null) {
+            throw new UsernameNotFoundException("User not found");
+        }
         
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-        
-        user.getAuthorities()
-          .forEach(role -> grantedAuthorities.add(new SimpleGrantedAuthority(role.toString())));
+        user.getRoles().forEach(role -> grantedAuthorities.add(new SimpleGrantedAuthority(role.toString())));
 
-        return user;
+        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), grantedAuthorities);
     }
 }

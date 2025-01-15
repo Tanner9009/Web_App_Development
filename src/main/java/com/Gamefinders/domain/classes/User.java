@@ -23,7 +23,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 //Imports Ending
-
 @Getter
 @Setter
 @Document("users")
@@ -38,6 +37,7 @@ public class User implements UserDetails{
     private String username;
     private String password;
     private String email;
+    private List<Role> roles = new ArrayList<>();
 
     //About the user
     private ArrayList<Integer> favouriteGames;
@@ -51,6 +51,10 @@ public class User implements UserDetails{
 
     public User(){}
 
+    public User(String username, String password){
+        this.username = username;
+        this.password = password;
+    }
 
     public User(ObjectId id, LocalDate signupDate, String username, String password, String email, ArrayList<Integer> favouriteGames, ArrayList<Integer> favouriteGenres, String userBio) {
         this.id = id;
@@ -78,7 +82,6 @@ public class User implements UserDetails{
         User user = (User) o;
         return Objects.equals(username, user.username) && Objects.equals(password, user.password);
     }
-
     
     public boolean isAccountNonExpired() {
         return true;
@@ -94,8 +97,6 @@ public class User implements UserDetails{
     public boolean isEnabled() {
         return true;
     }
-
-    private List<Role> roles = new ArrayList<>();
 
     @Override
     public List<GrantedAuthority> getAuthorities() {
