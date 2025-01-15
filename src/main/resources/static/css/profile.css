@@ -14,20 +14,16 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    background-color: gainsboro;
     align-content: center;
     margin: auto;
     width:60%;
-    border: 3px solid #73AD21;
-    padding:10px;
     text-align: center;
 }
 
 .profile_features a{
-    border: 3px solid #73AD21;
+    border: 3px solid;
     padding: 10px;
     color: black;
-    background:#73AD21;
     text-decoration: none;
     text-align: center;
 }
@@ -40,8 +36,30 @@
     border: 3px solid #686964;
     
 }
-
-
 .details_expand{
     overflow: hidden;
+}
+
+.profile-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+}
+
+.profile-container .about-section,
+.profile-container .details-section {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.btn-custom {
+    border: 3px solid #73AD21;
+    padding: 10px;
+    background: #73AD21;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    margin-top: 10px;
+    border-radius: 10px; /* Add curved corners */
 }

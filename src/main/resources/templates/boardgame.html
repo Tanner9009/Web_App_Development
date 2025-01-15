@@ -91,10 +91,6 @@
                         </p>
                     </div>
                 </div>
-                    <!-- <div class="reviews">
-                    <a th:href="@{|/boardgame/${game.id}/reviews|}">Reviews</a>
-                    </div>
-                        -->
 
                 <div class="game_add" sec:authorize="isAuthenticated()">
                     <form th:action="@{|/boardgames/details/${boardgame.name}/collection|}" method="post">
@@ -110,6 +106,10 @@
                             Add to wishlist
                         </button>
                     </form>
+                </div>
+
+                <div class="game_add" th:if="${#authorization.expression('isAnonymous()')}">
+                    <p><a th:href="@{'/login'}">Log in</a> to add to your profile. </p>
                 </div>
 
                 <div class="add_review" sec:authorize="isAuthenticated()">

@@ -53,47 +53,64 @@
             <img th:src="@{${user.profilePictureUrl}}" alt="Profile Picture">
         </div>
 
-        <div class="profile_features">
-            <a href="javascript:displayReviews()" th:text="${user.username} + '\'s Reviews'"></a>
-            <a href="javascript:displayCollection()" th:text="${user.username} + '\'s Collection'"></a>
-            <a href="javascript:displayWishlist()" th:text="${user.username} + '\'s Wishlist'"></a>
-        </div>
-
-        <div class="details_expand">
-            <!-- Sections for Reviews, Collection, Wishlist -->
-            <div id="reviewsSection" style="display: none;">
-                <h3 th:text="${user.username} + '\'s Reviews'"></h3>
-                <div th:if="${reviews != null}">
-                    <div th:each="review, iterStat : ${reviews}">
-                        <p>
-                            <span th:text="${iterStat.index + 1} + '. '"></span>
-                            <a th:href="@{${gameLinks[review.id]}}" th:text="${gameNames[review.id]} + ': '"></a>
-                            <span th:text="${review.text}"></span>
-                        </p>
-                    </div>
+        <div class="profile-container">
+            <div class="about-section">
+                <h3>About</h3>
+                <p><strong>Username:</strong> <span th:text="${user.username}"></span></p>
+                <p><strong>Registered on:</strong> <span th:text="${formattedRegistrationDate}"></span></p>
+                <p><strong>Bio:</strong></p>
+                <p th:if="${#authentication.name != user.username}" th:text="${user.userBio}"></p>
+                <div th:if="${#authentication.name == user.username}">
+                    <form th:action="@{/profile/updateBio}" method="post">
+                        <textarea name="bio" rows="4" cols="50" th:text="${user.userBio}"></textarea><br/>
+                        <button type="submit" class="btn-custom">Update Bio</button>
+                    </form>
                 </div>
             </div>
 
-            <div id="collectionSection" style="display: none;">
-                <h3 th:text="${user.username} + '\'s Collection'"></h3>
-                <div th:if="${collections != null}">
-                    <div th:each="game, iterStat : ${collections}">
-                        <p>
-                            <span th:text="${iterStat.index + 1} + '. '"></span>
-                            <a th:href="@{'/boardgames/details/' + ${game.name}}" th:text="${game.name}"></a>
-                        </p>
-                    </div>
+            <div class="details-section">
+                <div class="profile_features">
+                    <a href="javascript:displayReviews()" th:text="${user.username} + '\'s Reviews'" class="btn-custom"></a>
+                    <a href="javascript:displayCollection()" th:text="${user.username} + '\'s Collection'" class="btn-custom"></a>
+                    <a href="javascript:displayWishlist()" th:text="${user.username} + '\'s Wishlist'" class="btn-custom"></a>
                 </div>
-            </div>
 
-            <div id="wishlistSection" style="display: none;">
-                <h3 th:text="${user.username} + '\'s Wishlist'"></h3>
-                <div th:if="${wishlist != null}">
-                    <div th:each="game, iterStat : ${wishlist}">
-                        <p>
-                            <span th:text="${iterStat.index + 1} + '. '"></span>
-                            <a th:href="@{'/boardgames/details/' + ${game.name}}" th:text="${game.name}"></a>
-                        </p>
+                <div class="details_expand">
+                    <div id="reviewsSection" style="display: none;">
+                        <h3 th:text="${user.username} + '\'s Reviews'"></h3>
+                        <div th:if="${reviews != null}">
+                            <div th:each="review, iterStat : ${reviews}">
+                                <p>
+                                    <span th:text="${iterStat.index + 1} + '. '"></span>
+                                    <a th:href="@{${gameLinks[review.id]}}" th:text="${gameNames[review.id]} + ': '"></a>
+                                    <span th:text="${review.text}"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="collectionSection" style="display: none;">
+                        <h3 th:text="${user.username} + '\'s Collection'"></h3>
+                        <div th:if="${collections != null}">
+                            <div th:each="game, iterStat : ${collections}">
+                                <p>
+                                    <span th:text="${iterStat.index + 1} + '. '"></span>
+                                    <a th:href="@{'/boardgames/details/' + ${game.name}}" th:text="${game.name}"></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="wishlistSection" style="display: none;">
+                        <h3 th:text="${user.username} + '\'s Wishlist'"></h3>
+                        <div th:if="${wishlist != null}">
+                            <div th:each="game, iterStat : ${wishlist}">
+                                <p>
+                                    <span th:text="${iterStat.index + 1} + '. '"></span>
+                                    <a th:href="@{'/boardgames/details/' + ${game.name}}" th:text="${game.name}"></a>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -103,7 +120,7 @@
             <form th:action="@{/profile/uploadProfilePicture}" method="post" enctype="multipart/form-data">
                 <label for="profilePicture">Upload Profile Picture: </label>
                 <input type="file" id="profilePicture" name="profilePicture" required/><br/>
-                <button type="submit">Upload</button>
+                <button type="submit" class="btn-custom">Upload</button>
             </form>
         </div>
     </div>
