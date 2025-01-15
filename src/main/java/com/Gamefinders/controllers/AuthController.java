@@ -1,6 +1,10 @@
 package com.Gamefinders.controllers;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -8,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.Gamefinders.domain.classes.User;
+import com.Gamefinders.domain.enums.Role;
 import com.Gamefinders.services.interfaces.UserService;
 
 @Controller
@@ -15,6 +20,9 @@ public class AuthController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @GetMapping("/login")
     public String login() {
@@ -28,6 +36,11 @@ public class AuthController {
 
     @PostMapping("/signup")
     public ModelAndView registerUser(@ModelAttribute User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.getRoles().add(Role.ROLE_USER);
+        user.setCollections(new ArrayList<>());
+        user.setWishlist(new ArrayList<>());
+        user.setRegistrationTimestamp(LocalDateTime.now());
         userService.save(user);
         return new ModelAndView("redirect:/login?registered=true");
     }

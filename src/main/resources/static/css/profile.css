@@ -6,8 +6,8 @@
 }
 
 .profile_pic img{
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 400px;
+    max-height: 400px;
 }
 
 .profile_features{
@@ -43,6 +43,5 @@
 
 
 .details_expand{
-    border: 5px solid #8d8f21;
     overflow: hidden;
 }

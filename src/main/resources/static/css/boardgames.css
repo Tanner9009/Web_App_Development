@@ -1,7 +1,7 @@
 table {
     border-collapse: collapse;
-    border: 5px solid red;
     width: 100%;
+    padding: 10px;
 }
 
 td{
@@ -14,6 +14,10 @@ tr{
     border: 10px solid green;
 }
 
-.space{
-    padding: 200px;
+.space_up{
+    padding: 20px;
+}
+
+.space_down{
+    padding: 20px;
 }

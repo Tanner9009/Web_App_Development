@@ -17,12 +17,27 @@
     background-color: black;
 }
 
+.logo img{
+    width:4.5%;
+    height: 4.5%;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 .nav_bar a{
     float: left;
     color:white;
     text-decoration: none;
     text-align: center;
     padding: 5px;
+}
+
+.admin{
+    border: 1px solid gray;
+    float:right;
+    padding:10px;
+    background-color: black;
 }
 
 .login{

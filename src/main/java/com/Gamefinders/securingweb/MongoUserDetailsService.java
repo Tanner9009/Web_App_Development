@@ -1,4 +1,3 @@
-// filepath: /home/ione/Documents/University/Year_3/Web_App_Development/Web_App_Development/src/main/java/com/Gamefinders/securingweb/MongoUserDetailsService.java
 package com.Gamefinders.securingweb;
 
 import java.util.HashSet;

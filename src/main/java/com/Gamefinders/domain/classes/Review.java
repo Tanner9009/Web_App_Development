@@ -20,18 +20,18 @@ public class Review {
     //Review Metadata
     @Id
     public String id;
-    public String authorId;
+    public String authorUsername;
+    private String gameId;
 
     //User-generated content
     public String text;
-    public Float userScore;
 
     public Review(){}
 
-    public Review(String id, String authorId, String text, Float userScore){
+    public Review(String id, String authorId, String text, String gameId){
         this.id = id;
-        this.authorId = authorId;
+        this.authorUsername = authorId;
         this.text = text;
-        this.userScore = userScore;
+        this.gameId = gameId;
     }
 }

@@ -10,4 +10,5 @@ public interface BoardGameService {
     void saveAll(Iterable<BoardGame> boardGames);
     Optional<BoardGame> findById(String id);
     void deleteByName(String name);
+    List<BoardGame> findByName(String name);
 }

@@ -39,4 +39,9 @@ public class BoardGameServiceImpl implements BoardGameService {
     public Optional<BoardGame> findById(String id) {
         return boardGameRepository.findById(id);
     }
+
+    @Override
+    public List<BoardGame> findByName(String name) {
+        return boardGameRepository.findByName(name);
+    }
 }

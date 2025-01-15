@@ -1,0 +1,15 @@
+.main_body{
+    text-align: center;
+    position: relative;
+}
+
+.main_body a{
+    color: white;
+    border: 1px solid gray;
+    padding:10px;
+    background-color: black;
+}
+
+.space{
+    padding: 120px;
+}

@@ -3,7 +3,7 @@ package com.Gamefinders.domain.classes;
 //Imports beginning
 
 //Utilities
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -31,7 +31,7 @@ public class User implements UserDetails{
     //User metadata
     @MongoId
     private ObjectId id;
-    private LocalDate signupDate;
+    private LocalDateTime registrationTimestamp;
 
     //User information
     private String username;
@@ -44,30 +44,38 @@ public class User implements UserDetails{
     private ArrayList<Integer> favouriteGenres;
     private String userBio;
     private ArrayList<User> friendList;
+    private String profilePictureUrl;
 
     //Collections & Wishlist
-    private ArrayList<Gamelist> collections;
-    private ArrayList<BoardGame> wishlist;
+    private ArrayList<BoardGame> collections = new ArrayList<>();
+    private ArrayList<BoardGame> wishlist = new ArrayList<>();
+
+    //User reviews
+    private ArrayList<Review> reviews = new ArrayList<>();
 
     public User(){}
 
     public User(String username, String password){
         this.username = username;
         this.password = password;
+        this.collections = new ArrayList<>();
+        this.wishlist = new ArrayList<>();
+        this.reviews = new ArrayList<>();
     }
 
-    public User(ObjectId id, LocalDate signupDate, String username, String password, String email, ArrayList<Integer> favouriteGames, ArrayList<Integer> favouriteGenres, String userBio) {
+    public User(ObjectId id, LocalDateTime signupDate, String username, String password, String email, ArrayList<Integer> favouriteGames, ArrayList<Integer> favouriteGenres, String userBio) {
         this.id = id;
-        this.signupDate = signupDate;
+        this.registrationTimestamp = signupDate;
         this.username = username;
         this.password = password;
         this.email = email;
         this.favouriteGames = favouriteGames;
         this.favouriteGenres = favouriteGenres;
         this.userBio = userBio;
-        this.collections = new ArrayList<Gamelist>();
-        this.wishlist = new ArrayList<BoardGame>();
-        this.friendList = new ArrayList<User>();
+        this.collections = new ArrayList<>();
+        this.wishlist = new ArrayList<>();
+        this.reviews = new ArrayList<>();
+        this.friendList = new ArrayList<>();
     }
 
     @Override
