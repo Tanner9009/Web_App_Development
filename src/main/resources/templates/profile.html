@@ -59,12 +59,9 @@
                 <p><strong>Username:</strong> <span th:text="${user.username}"></span></p>
                 <p><strong>Registered on:</strong> <span th:text="${formattedRegistrationDate}"></span></p>
                 <p><strong>Bio:</strong></p>
-                <p th:if="${#authentication.name != user.username}" th:text="${user.userBio}"></p>
+                <p th:text="${user.userBio}"></p>
                 <div th:if="${#authentication.name == user.username}">
-                    <form th:action="@{/profile/updateBio}" method="post">
-                        <textarea name="bio" rows="4" cols="50" th:text="${user.userBio}"></textarea><br/>
-                        <button type="submit" class="btn-custom">Update Bio</button>
-                    </form>
+                    <a th:href="@{/profile/settings}" class="btn-custom">Edit Profile</a>
                 </div>
             </div>
 
@@ -123,14 +120,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="upload_profile_picture" th:if="${#authentication.name == user.username}">
-            <form th:action="@{/profile/uploadProfilePicture}" method="post" enctype="multipart/form-data">
-                <label for="profilePicture">Upload Profile Picture: </label>
-                <input type="file" id="profilePicture" name="profilePicture" required/><br/>
-                <button type="submit" class="btn-custom">Upload</button>
-            </form>
         </div>
     </div>
 

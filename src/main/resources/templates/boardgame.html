@@ -115,6 +115,8 @@
             <div class="add_review" sec:authorize="isAuthenticated()">
                 <form th:action="@{|/boardgames/details/${boardgame.name}/reviews|}" method="post">
                     <textarea name="review" size="200" placeholder="Please write your review!" th:text="${existingReview != null} ? ${existingReview.text} : ''"></textarea>
+                    <br>
+                    <br>
                     <button type="submit" th:text="${existingReview != null} ? 'Update review' : 'Add review'"></button>
                 </form>
                 <form th:action="@{|/boardgames/details/${boardgame.name}/reviews/delete|}" method="post" th:if="${existingReview != null}">
