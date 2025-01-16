@@ -1,4 +1,3 @@
-
 function displayReviews() {
     document.getElementById("reviewsSection").style.display = "block";
     document.getElementById("collectionSection").style.display = "none";

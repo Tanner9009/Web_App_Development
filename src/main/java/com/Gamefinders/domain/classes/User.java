@@ -3,8 +3,8 @@ package com.Gamefinders.domain.classes;
 //Imports beginning
 
 //Utilities
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -31,7 +31,7 @@ public class User implements UserDetails{
     //User metadata
     @MongoId
     private ObjectId id;
-    private LocalDateTime registrationTimestamp;
+    private Date registrationTimestamp;
 
     //User information
     private String username;
@@ -63,7 +63,7 @@ public class User implements UserDetails{
         this.reviews = new ArrayList<>();
     }
 
-    public User(ObjectId id, LocalDateTime signupDate, String username, String password, String email, ArrayList<Integer> favouriteGames, ArrayList<Integer> favouriteGenres, String userBio) {
+    public User(ObjectId id, Date signupDate, String username, String password, String email, ArrayList<Integer> favouriteGames, ArrayList<Integer> favouriteGenres, String userBio) {
         this.id = id;
         this.registrationTimestamp = signupDate;
         this.username = username;

@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -59,6 +60,7 @@ public class ProfileController {
         model.addAttribute("reviews", reviews);
         model.addAttribute("gameNames", gameNames);
         model.addAttribute("gameLinks", gameLinks);
+        model.addAttribute("formattedRegistrationDate", new SimpleDateFormat("yyyy-MM-dd").format(user.getRegistrationTimestamp()));
         return "profile";
     }
 
@@ -97,6 +99,23 @@ public class ProfileController {
                 // Handle the error appropriately
             }
         }
+
+        return "redirect:/profile/" + user.getUsername();
+    }
+
+    @PostMapping("/updateBio")
+    public String updateBio(@RequestParam("bio") String bio, Authentication authentication) {
+        if (authentication == null || !authentication.isAuthenticated()) {
+            return "redirect:/login";
+        }
+
+        User user = userService.findByUsername(authentication.getName());
+        if (user == null) {
+            return "error";
+        }
+
+        user.setUserBio(bio);
+        userService.save(user);
 
         return "redirect:/profile/" + user.getUsername();
     }

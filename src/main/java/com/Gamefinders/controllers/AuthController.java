@@ -1,7 +1,7 @@
 package com.Gamefinders.controllers;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -40,7 +40,7 @@ public class AuthController {
         user.getRoles().add(Role.ROLE_USER);
         user.setCollections(new ArrayList<>());
         user.setWishlist(new ArrayList<>());
-        user.setRegistrationTimestamp(LocalDateTime.now());
+        user.setRegistrationTimestamp(new Date());
         userService.save(user);
         return new ModelAndView("redirect:/login?registered=true");
     }
