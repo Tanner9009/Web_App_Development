@@ -57,9 +57,18 @@
     border: 3px solid #73AD21;
     padding: 10px;
     background: #73AD21;
-    text-decoration: none;
+    text-decoration:    none;
     text-align: center;
     display: inline-block;
     margin-top: 10px;
-    border-radius: 10px; /* Add curved corners */
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.about-section a{
+    border: 3px solid;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
 }

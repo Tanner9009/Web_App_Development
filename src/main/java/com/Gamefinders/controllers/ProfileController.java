@@ -72,6 +72,19 @@ public class ProfileController {
         return "redirect:/login";
     }
 
+    @GetMapping("/settings")
+    public String profileSettings(Model model, Authentication authentication) {
+        if (authentication == null || !authentication.isAuthenticated()) {
+            return "redirect:/login";
+        }
+        User user = userService.findByUsername(authentication.getName());
+        if (user == null) {
+            return "error";
+        }
+        model.addAttribute("user", user);
+        return "profile_settings";
+    }
+
     @PostMapping("/uploadProfilePicture")
     public String uploadProfilePicture(@RequestParam("profilePicture") MultipartFile profilePicture, Authentication authentication) {
         if (authentication == null || !authentication.isAuthenticated()) {
@@ -107,8 +120,8 @@ public class ProfileController {
         return "redirect:/profile/" + user.getUsername();
     }
 
-    @PostMapping("/updateBio")
-    public String updateBio(@RequestParam("bio") String bio, Authentication authentication) {
+    @PostMapping("/updateProfile")
+    public String updateProfile(@RequestParam("bio") String bio, Authentication authentication) {
         if (authentication == null || !authentication.isAuthenticated()) {
             return "redirect:/login";
         }

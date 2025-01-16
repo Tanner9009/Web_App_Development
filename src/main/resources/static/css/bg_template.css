@@ -44,3 +44,14 @@ textarea {
 .space_button{
     padding: 10px;
 }
+
+.add_review form{
+    padding: 15px;
+}
+
+
+.add_review button{
+    background-color: lightgreen;
+    text-decoration-color: black;
+}
+
