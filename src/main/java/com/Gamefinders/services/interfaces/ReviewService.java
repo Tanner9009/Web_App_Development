@@ -8,4 +8,5 @@ public interface ReviewService {
     void save(Review review);
     List<Review> findByAuthorUsername(String authorUsername);
     List<Review> findByGameId(String gameId);
+    void deleteById(String reviewId);
 }

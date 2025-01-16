@@ -55,17 +55,27 @@ public class BoardGamesController {
 
         if (authentication != null && authentication.isAuthenticated()) {
             User user = userService.findByUsername(authentication.getName());
-            if (user.getCollections() == null) {
-                user.setCollections(new ArrayList<>());
+            if (user != null) {
+                if (user.getCollections() == null) {
+                    user.setCollections(new ArrayList<>());
+                }
+                if (user.getWishlist() == null) {
+                    user.setWishlist(new ArrayList<>());
+                }
+                model.addAttribute("inCollection", user.getCollections().contains(boardGame));
+                model.addAttribute("inWishlist", user.getWishlist().contains(boardGame));
+
+                // Check if the user has already reviewed this game
+                Review existingReview = reviews.stream()
+                    .filter(review -> review.getAuthorUsername().equals(user.getUsername()))
+                    .findFirst()
+                    .orElse(null);
+                model.addAttribute("existingReview", existingReview);
             }
-            if (user.getWishlist() == null) {
-                user.setWishlist(new ArrayList<>());
-            }
-            model.addAttribute("inCollection", user.getCollections().contains(boardGame));
-            model.addAttribute("inWishlist", user.getWishlist().contains(boardGame));
         } else {
             model.addAttribute("inCollection", false);
             model.addAttribute("inWishlist", false);
+            model.addAttribute("existingReview", null);
         }
 
         return "boardgame";
@@ -77,6 +87,9 @@ public class BoardGamesController {
             return "redirect:/login";
         }
         User user = userService.findByUsername(authentication.getName());
+        if (user == null) {
+            return "error";
+        }
         List<BoardGame> boardGames = boardGameService.findByName(name);
         if (!boardGames.isEmpty()) {
             BoardGame boardGame = boardGames.get(0);
@@ -99,6 +112,9 @@ public class BoardGamesController {
             return "redirect:/login";
         }
         User user = userService.findByUsername(authentication.getName());
+        if (user == null) {
+            return "error";
+        }
         List<BoardGame> boardGames = boardGameService.findByName(name);
         if (!boardGames.isEmpty()) {
             BoardGame boardGame = boardGames.get(0);
@@ -116,19 +132,54 @@ public class BoardGamesController {
     }
 
     @PostMapping("/details/{name}/reviews")
-    public String addReview(@PathVariable String name, @RequestParam String review, Authentication authentication) {
+    public String addOrUpdateReview(@PathVariable String name, @RequestParam String review, Authentication authentication) {
         if (authentication == null || !authentication.isAuthenticated()) {
             return "redirect:/login";
         }
         User user = userService.findByUsername(authentication.getName());
+        if (user == null) {
+            return "error";
+        }
         List<BoardGame> boardGames = boardGameService.findByName(name);
         if (!boardGames.isEmpty()) {
             BoardGame boardGame = boardGames.get(0);
-            Review newReview = new Review();
-            newReview.setAuthorUsername(user.getUsername());
-            newReview.setGameId(boardGame.getId());
-            newReview.setText(review);
-            reviewService.save(newReview);
+            Review existingReview = reviewService.findByAuthorUsername(user.getUsername()).stream()
+                .filter(r -> r.getGameId().equals(boardGame.getId()))
+                .findFirst()
+                .orElse(null);
+            if (existingReview != null) {
+                existingReview.setText(review);
+                reviewService.save(existingReview);
+            } else {
+                Review newReview = new Review();
+                newReview.setAuthorUsername(user.getUsername());
+                newReview.setGameId(boardGame.getId());
+                newReview.setText(review);
+                reviewService.save(newReview);
+            }
+        }
+        return "redirect:/boardgames/details/" + name;
+    }
+
+    @PostMapping("/details/{name}/reviews/delete")
+    public String deleteReview(@PathVariable String name, Authentication authentication) {
+        if (authentication == null || !authentication.isAuthenticated()) {
+            return "redirect:/login";
+        }
+        User user = userService.findByUsername(authentication.getName());
+        if (user == null) {
+            return "error";
+        }
+        List<BoardGame> boardGames = boardGameService.findByName(name);
+        if (!boardGames.isEmpty()) {
+            BoardGame boardGame = boardGames.get(0);
+            Review existingReview = reviewService.findByAuthorUsername(user.getUsername()).stream()
+                .filter(r -> r.getGameId().equals(boardGame.getId()))
+                .findFirst()
+                .orElse(null);
+            if (existingReview != null) {
+                reviewService.deleteById(existingReview.getId());
+            }
         }
         return "redirect:/boardgames/details/" + name;
     }

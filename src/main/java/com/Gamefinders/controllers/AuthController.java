@@ -36,11 +36,16 @@ public class AuthController {
 
     @PostMapping("/signup")
     public ModelAndView registerUser(@ModelAttribute User user) {
+        if (userService.findByUsername(user.getUsername()) != null) {
+            return new ModelAndView("signup", "error", "Username is already taken.");
+        }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.getRoles().add(Role.ROLE_USER);
         user.setCollections(new ArrayList<>());
         user.setWishlist(new ArrayList<>());
         user.setRegistrationTimestamp(new Date());
+        user.setProfilePictureUrl("/images/default_profile_picture.png");
+        user.setUserBio("I am new to GameFinders!");
         userService.save(user);
         return new ModelAndView("redirect:/login?registered=true");
     }

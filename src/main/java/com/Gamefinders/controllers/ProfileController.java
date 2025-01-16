@@ -85,14 +85,18 @@ public class ProfileController {
 
         if (!profilePicture.isEmpty()) {
             try {
-                // Save the image to the static/images/profile_pictures directory
-                String imagePath = "src/main/resources/static/images/profile_pictures/" + profilePicture.getOriginalFilename();
+                // Get the file extension
+                String originalFilename = profilePicture.getOriginalFilename();
+                String extension = originalFilename.substring(originalFilename.lastIndexOf("."));
+
+                // Save the image to the static/images/profile_pictures directory with the username as the filename
+                String imagePath = "src/main/resources/static/images/profile_pictures/" + user.getUsername() + extension;
                 Path path = Paths.get(imagePath);
                 Files.createDirectories(path.getParent());
                 Files.write(path, profilePicture.getBytes());
 
                 // Set the profile picture URL to the User object
-                user.setProfilePictureUrl("/images/profile_pictures/" + profilePicture.getOriginalFilename());
+                user.setProfilePictureUrl("/images/profile_pictures/" + user.getUsername() + extension);
                 userService.save(user);
             } catch (IOException e) {
                 e.printStackTrace();

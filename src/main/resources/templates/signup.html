@@ -2,15 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Sign Up | GameFinders</title>
-</head>
-<body>
     <link rel="stylesheet" href="/css/general_design.css">
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/auth.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+</head>
+<body>
 <div class="wrapper">
     <div class="nav_bar">
         <div class="logo">
@@ -67,7 +66,7 @@
         </form>
     </div>
 
-    <div th:if="${error}">
+    <div class="error-message" th:if="${error}">
         <p style="color:red" th:text="${error}"></p>
     </div>
 
@@ -81,8 +80,7 @@
             <p>Links</p>
         </div>
 
-        <div clas="social_links">
-            
+        <div class="social_links">
             <div class="slinks_left">
                 <p>About</p>
                 <p>Contact</p>

@@ -43,3 +43,8 @@ div th{
     text-align: center;
     position: center;
 }
+
+.error-message {
+    text-align: center;
+    margin: 20px auto;
+}

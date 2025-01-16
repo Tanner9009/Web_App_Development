@@ -34,4 +34,9 @@ public class ReviewServiceImpl implements ReviewService {
     public List<Review> findByGameId(String gameId) {
         return reviewRepository.findByGameId(gameId);
     }
+
+    @Override
+    public void deleteById(String reviewId) {
+        reviewRepository.deleteById(reviewId);
+    }
 }
