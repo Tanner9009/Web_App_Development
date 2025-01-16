@@ -87,6 +87,9 @@
                                 </p>
                             </div>
                         </div>
+                        <div th:if="${reviews == null || reviews.isEmpty()}">
+                            <p>No reviews available.</p>
+                        </div>
                     </div>
 
                     <div id="collectionSection" style="display: none;">
@@ -99,6 +102,9 @@
                                 </p>
                             </div>
                         </div>
+                        <div th:if="${collections == null || collections.isEmpty()}">
+                            <p>No games in collection.</p>
+                        </div>
                     </div>
 
                     <div id="wishlistSection" style="display: none;">
@@ -110,6 +116,9 @@
                                     <a th:href="@{'/boardgames/details/' + ${game.name}}" th:text="${game.name}"></a>
                                 </p>
                             </div>
+                        </div>
+                        <div th:if="${wishlist == null || wishlist.isEmpty()}">
+                            <p>No games in wishlist.</p>
                         </div>
                     </div>
                 </div>
