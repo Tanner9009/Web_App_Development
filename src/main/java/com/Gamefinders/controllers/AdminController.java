@@ -64,6 +64,14 @@ public class AdminController {
         Optional<BoardGame> existingGameOpt = boardGameService.findByName(newBoardGame.getName()).stream().findFirst();
         BoardGame boardGame;
 
+        /* try{
+            if(image.getSize() > 10000000){
+                return "redirect:/error";
+            }
+        } catch (Exception e){
+            //;
+        } */
+
         if (existingGameOpt.isPresent()) {
             boardGame = existingGameOpt.get();
             // Update existing game details with provided ones
@@ -92,12 +100,10 @@ public class AdminController {
                 Path path = Paths.get(imagePath);
                 Files.createDirectories(path.getParent());
                 Files.write(path, image.getBytes());
-
-                // Set the image URL to the BoardGame object
                 boardGame.setImageUrl("/images/boardgames/" + image.getOriginalFilename());
             } catch (IOException e) {
                 e.printStackTrace();
-                // Handle the error appropriately
+                return "redirect:/error";
             }
         }
 
